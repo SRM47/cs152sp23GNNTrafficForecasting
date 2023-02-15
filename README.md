@@ -24,5 +24,10 @@ Given that we would not want to prejudice the model for a particular environment
 [2] https://arxiv.org/pdf/2101.11174.pdf
 
 ### Related Works Search
+How Powerful are Graph Neural Networks? <br/>
 [1] https://arxiv.org/abs/1810.00826 <br/>
 This is a much more theoretical paper, going through the possibilities and limitations of graph neural networks. This is done by creating a theoretical Graph Network, the Graph Isomorphism Network (GIN). They use 9 different bioinformatics or social network datasets to evaluate the GIN vs other Graph Neural Networks and show how it is theoretically more optimal. <br/> 
+
+DDP-GCN: Multi-Graph Convolutional Network for Spatiotemporal Traffic Forecasting <br/>
+[2] https://arxiv.org/pdf/1905.12256.pdf <br/>
+This paper introduces DDP-GCN (DIstance, Direction, and Position Graph Convolutional Network) for traffic flow forecasting. They describe traffic flow prediction as highly complex due to non-euclidean characteristics. It cited that previous works modeled spatial dependencies between roads and cars on them using distance. This paper introduces the use of direction and positional relationship alongside distance for this purpose. To describe these three characteristics, the paper uses multi graphs, a graph that allows more than one edge per pair of vertices to incorporate three spatial relationships into the neural network. DDPGCN achieved sota over baselines on two large scale datasets. 
