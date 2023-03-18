@@ -38,10 +38,9 @@ Taking into account all the work that has already been done, we hope to devise a
 
 ### Methods
 1. Dataset
-2. Models
-  a. GNN
-  b. some GNN variant (like a Graph-attention-network LSTM, or a Graph Convulutional Network... we can survey the literature)
-  c. List the other kinds of networks we will train. we'll train multiple models and compare them to the GNN. CNN? RNN? LSTM?
+2. GNN
+3. some GNN variant (like a Graph-attention-network LSTM, or a Graph Convulutional Network... we can survey the literature)
+4. List the other kinds of networks we will train. we'll train multiple models and compare them to the GNN. CNN? RNN? LSTM?
 
 ### Goals
 1. Predict traffic flow in San Francisco
