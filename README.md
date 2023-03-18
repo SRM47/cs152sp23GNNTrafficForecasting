@@ -28,8 +28,19 @@ There is also much possibility to go beyond just a basic GNN when building our m
 
 Another consideration is vehicle-vehicle interaction - after all, traffic is in large part determined by the reactive behavior of human drivers. <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8814066&isnumber=8813768">Diehl et al., 2019</a>, developed an approach that successfully interprets a traffic scene as a complex graph of interacting vehicles. Using GNNs, they make traffic predictions using interactions between traffic participants while being computationally efficient and providing large model capacity. They showed that prediction error in scenarios with much interaction decreases by 30 % compared to a model that does not take interactions into account. This suggests that interaction is important, and shows that we can model it using graphs.
 
+Additionally, the paper "Graph Attention LSTM Network: A New Model for Traffic Flow Forecasting" takes advantage of the self attention mechanism (cite attention is all you need) by combining a graph neural with attention and long short term memory networks *write more* https://www.researchgate.net/publication/330473040
+- how they represented their data
+- they just predicted traffic for the next 5 minutes given an hour's worth of data
+- they have a good explanation of GNN, GAT (graph attention networks), GAT-LSTM
+
 
 Taking into account all the work that has already been done, we hope to devise an approach that can dynamically mix the best parts of previous research and acheive comprable, if not better, GNN performance. 
+
+### Methods
+#### Dataset
+#### GNN Structure
+#### some GNN variant (like a Graph-attention-network LSTM, or a Graph Convulutional Network... we can survey the literature)
+#### List the other kinds of networks we will train. we'll train multiple models and compare them to the GNN. CNN? RNN? LSTM?
 
 ### Goals
 1. Predict traffic flow in San Francisco
