@@ -28,11 +28,7 @@ There is also much possibility to go beyond just a basic GNN when building our m
 Another consideration is vehicle-vehicle interaction - after all, traffic is in large part determined by the reactive behavior of human drivers. <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8814066&isnumber=8813768">Diehl et al., 2019</a>, developed an approach that successfully interprets a traffic scene as a complex graph of interacting vehicles. Using GNNs, they make traffic predictions using interactions between traffic participants while being computationally efficient and providing large model capacity. They showed that prediction error in scenarios with much interaction decreases by 30 % compared to a model that does not take interactions into account. This suggests that interaction is important, and shows that we can model it using graphs.
 
 
-Additionally, the paper "Graph Attention LSTM Network: A New Model for Traffic Flow Forecasting" takes advantage of the self attention mechanism (cite attention is all you need) by combining a graph neural with attention and long short term memory networks *write more* https://www.researchgate.net/publication/330473040
-- how they represented their data
-- they just predicted traffic for the next 5 minutes given an hour's worth of data
-- they have a good explanation of GNN, GAT (graph attention networks), GAT-LSTM
-
+Additionally, the paper <a href="https://www.researchgate.net/publication/330473040"> Graph Attention LSTM Network: A New Model for Traffic Flow Forecasting", Wu, Tianlong, et al., 2018 </a>, takes advantage of the self attention mechanism, most popular for its use in Transformers, by combining a graph neural network with attention and long short term memory networks to accurately predict the temporal depencies of traffic. They predicted traffic data for the next 5 minutes using the previous 30 minutes of data; our group will adopt a similar regime for prediction. 
 
 Taking into account all the work that has already been done, we hope to devise an approach that can dynamically mix the best parts of previous research and acheive comprable, if not better, GNN performance. 
 
@@ -65,5 +61,9 @@ Given that we would not want to prejudice the model for a particular environment
 
 [6] Wang, Xiaoyang, et al. “Traffic Flow Prediction via Spatial Temporal Graph Neural Network.” Proceedings of The Web Conference 2020, 2020, https://doi.org/10.1145/3366423.3380186. 
 
-[7] Xu, Keyulu Xu, et al. “How Powerful Are Graph Neural Networks?” 22 Feb. 2019, https://doi.org/https://doi.org/10.48550/arXiv.1810.00826. 
+[7] Wu, Tianlong, et al. “Graph Attention LSTM Network: A New Model for Traffic Flow Forecasting.” 2018 5th International Conference on Information Science and Control Engineering (ICISCE), 2018, https://doi.org/10.1109/icisce.2018.00058. 
+
+[8] Xu, Keyulu Xu, et al. “How Powerful Are Graph Neural Networks?” 22 Feb. 2019, https://doi.org/https://doi.org/10.48550/arXiv.1810.00826. 
+
+
 
