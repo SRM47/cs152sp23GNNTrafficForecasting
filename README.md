@@ -28,6 +28,7 @@ There is also much possibility to go beyond just a basic GNN when building our m
 
 Another consideration is vehicle-vehicle interaction - after all, traffic is in large part determined by the reactive behavior of human drivers. <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8814066&isnumber=8813768">Diehl et al., 2019</a>, developed an approach that successfully interprets a traffic scene as a complex graph of interacting vehicles. Using GNNs, they make traffic predictions using interactions between traffic participants while being computationally efficient and providing large model capacity. They showed that prediction error in scenarios with much interaction decreases by 30 % compared to a model that does not take interactions into account. This suggests that interaction is important, and shows that we can model it using graphs.
 
+
 Additionally, the paper "Graph Attention LSTM Network: A New Model for Traffic Flow Forecasting" takes advantage of the self attention mechanism (cite attention is all you need) by combining a graph neural with attention and long short term memory networks *write more* https://www.researchgate.net/publication/330473040
 - how they represented their data
 - they just predicted traffic for the next 5 minutes given an hour's worth of data
@@ -38,9 +39,10 @@ Taking into account all the work that has already been done, we hope to devise a
 
 ### Methods
 1. Dataset
-2. GNN
-3. some GNN variant (like a Graph-attention-network LSTM, or a Graph Convulutional Network... we can survey the literature)
-4. List the other kinds of networks we will train. we'll train multiple models and compare them to the GNN. CNN? RNN? LSTM?
+Our group will attempt to use the <a href="https://data.cityofnewyork.us/Transportation/Automated-Traffic-Volume-Counts/7ym2-wayt">"Automated Traffic Volume Counts"</a> from the city of New York open data to predict traffic flow in New York City. This dataset contains approximately 27 million rows of traffic flow data of certain roads and 15 minutes time intervals from 2010 to January 20th 2023. We intend to access this data using its provided API. Using this data, we will construct a graph at each unique 15 minute interval and conduct time series analysis on the data using various types of Graph Neural architechtures such as Graph Neural Networks, Graph Attention Networks, LSTM's, and so on.
+3. GNN
+4. some GNN variant (like a Graph-attention-network LSTM, or a Graph Convulutional Network... we can survey the literature)
+5. List the other kinds of networks we will train. we'll train multiple models and compare them to the GNN. CNN? RNN? LSTM?
 
 ### Goals
 1. Predict traffic flow in San Francisco
