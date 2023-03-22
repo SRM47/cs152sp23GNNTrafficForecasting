@@ -38,11 +38,8 @@ Additionally, the paper "Graph Attention LSTM Network: A New Model for Traffic F
 Taking into account all the work that has already been done, we hope to devise an approach that can dynamically mix the best parts of previous research and acheive comprable, if not better, GNN performance. 
 
 ### Methods
-1. Dataset
-Our group will attempt to use the <a href="https://data.cityofnewyork.us/Transportation/Automated-Traffic-Volume-Counts/7ym2-wayt">"Automated Traffic Volume Counts"</a> from the city of New York open data to predict traffic flow in New York City. This dataset contains approximately 27 million rows of traffic flow data of certain roads and 15 minutes time intervals from 2010 to January 20th 2023. We intend to access this data using its provided API. Using this data, we will construct a graph at each unique 15 minute interval and conduct time series analysis on the data using various types of Graph Neural architechtures such as Graph Neural Networks, Graph Attention Networks, LSTM's, and so on.
-3. GNN
-4. some GNN variant (like a Graph-attention-network LSTM, or a Graph Convulutional Network... we can survey the literature)
-5. List the other kinds of networks we will train. we'll train multiple models and compare them to the GNN. CNN? RNN? LSTM?
+Our group will attempt to use the <a href="https://data.cityofnewyork.us/Transportation/Automated-Traffic-Volume-Counts/7ym2-wayt">"Automated Traffic Volume Counts"</a> from the city of New York open data to predict traffic flow in New York City. This dataset contains approximately 27 million rows of traffic flow data of certain roads and 15 minutes time intervals from 2010 to January 20th 2023. We intend to access this data using its provided API, involving common Python libraries such as Pandas, Requests, and NumPy. Using this data, we will construct a network graph for of the each unique 15 minute intervals and conduct time series analysis on the data using various types of Graph Neural architechtures such as Graph Neural Networks, Graph Attention Networks, LSTM's, and so on: Using the traffic data (graph) of the previous two hours to predict the next 15 minutes.
+
 
 ### Goals
 1. Predict traffic flow in San Francisco
