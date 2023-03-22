@@ -1,5 +1,5 @@
 # CSCI 152 Neural Networks Final Project
-## Graph Neural Network Traffic Flow Forecasting in California
+## Graph Neural Network Traffic Flow Forecasting in New York City
 
 ### Members
 Austin Zang, Devin Guinney, Ethan Lee, Saatvik Kher, Sam Malik
