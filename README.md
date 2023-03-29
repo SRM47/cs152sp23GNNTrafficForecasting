@@ -1,5 +1,5 @@
 # CSCI 152 Neural Networks Final Project
-## Graph Neural Network Traffic Flow Forecasting in California
+## Graph Neural Network Traffic Flow Forecasting in New York City
 
 ### Members
 Austin Zang, Devin Guinney, Ethan Lee, Saatvik Kher, Sam Malik
@@ -10,10 +10,9 @@ Austin Zang, Devin Guinney, Ethan Lee, Saatvik Kher, Sam Malik
 Traffic across the United States is a problem often discussed both academically and casually: on a more macro scale, it's a cause for economic efficiency, pollution, and the deterioration of human health. On a micro scale, almost everyone experiences a "bad day" in transit.
 One analytical tool that has come into play with the rise of machine learning is traffic forecasting - the ability to use historical traffic data to predict information like volume, speed, and flow of vehicles at a given time. Applications of neural networks in this domain are essential to improve travel safety and foster cost-efficient travel according to <a href="https://www.tandfonline.com/doi/full/10.1080/23311916.2021.2010510">Kashyap et al., 2021</a>. Government officials may then use these predictions to plan more efficient road infrastructure, making decisions on the budget, scope, and geometry of America's transportation network. 
 
-The San Francisco Bay Area is particularly interesting to analyze due to its unique needs and existing strengths. As the second largest metro area and center of commerce in California, SF's roads see a great volume of use - at the same time, the coastal nature of the city lends to bottlenecks and points of inefficiency. On top it all, the BART (Bay Area Rapid Transit) network is theoretically designed to supplement SF's vehicular infrastructure. 
-Finally, Graph Neural Networks (GNNs) are a rapidly advancing area of ML research, featuring an architecture designed to analyze the complex topology of interconnected graphs. The current literature on this topic relies heavily on using Convolutional Neural Networks and Recurrent Neural Networks to forecast traffic flow. However, according to a work by <a href="https://arxiv.org/pdf/2101.11174.pdf">Wang, Xiaoyang, et al., 2022</a>, a new type of neural network, the Graph Neural Network, has become increasingly popular in modeling traffic flow's spatial and temporal dependencies. With GNNs, it's possible to do node-level, edge-level, and graph-level inference - a nearly 1-1 translation of the real-world traffic prediction problem.  
+The Ney York City Area is particularly interesting to analyze due to its unique needs and existing strengths. NYC's roads see a great volume of use - at the same time, the grid like design of the city and heavy inflow from tourism leads to frequent bottlenecks and points of inefficiency. On top it all, the New York Transit Subway network is theoretically designed to supplement NYC's vehicular infrastructure. Finally, Graph Neural Networks (GNNs) are a rapidly advancing area of ML research, featuring an architecture designed to analyze the complex topology of interconnected graphs. The current literature on this topic relies heavily on using Convolutional Neural Networks and Recurrent Neural Networks to forecast traffic flow. However, according to a work by <a href="https://arxiv.org/pdf/2101.11174.pdf">Wang, Xiaoyang, et al., 2022</a>, a new type of neural network, the Graph Neural Network, has become increasingly popular in modeling traffic flow's spatial and temporal dependencies. With GNNs, it's possible to do node-level, edge-level, and graph-level inference - a nearly 1-1 translation of the real-world traffic prediction problem.  
 
-Considering all of these factors, we hope to develop a project that applies GNN methodologies to traffic forecasting in the SF Bay Area. Ideally, our model will be able to identify bottlenecks, inefficiencies, and "danger zones" within the city that could be remedied with either greater road development or BART networking. Short of actual policy recommendation, we could also use this information to help SF drivers identify patterns and improve their quality of travel within the city. We will also compare our GNN performance and application to existing approaches (including conventional CNN) in literature.
+Considering all of these factors, we hope to develop a project that applies GNN methodologies to traffic forecasting in the NYC area. Ideally, our model will be able to identify bottlenecks, inefficiencies, and "danger zones" within the city that could be remedied with either greater road development. Short of actual policy recommendation, we could also use this information to help NYC drivers identify patterns and improve their quality of travel within the city. We will also compare our GNN performance and application to existing approaches (including conventional CNN) in literature.
 
 
 ### Related Works
@@ -28,19 +27,14 @@ There is also much possibility to go beyond just a basic GNN when building our m
 
 Another consideration is vehicle-vehicle interaction - after all, traffic is in large part determined by the reactive behavior of human drivers. <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8814066&isnumber=8813768">Diehl et al., 2019</a>, developed an approach that successfully interprets a traffic scene as a complex graph of interacting vehicles. Using GNNs, they make traffic predictions using interactions between traffic participants while being computationally efficient and providing large model capacity. They showed that prediction error in scenarios with much interaction decreases by 30 % compared to a model that does not take interactions into account. This suggests that interaction is important, and shows that we can model it using graphs.
 
-Additionally, the paper "Graph Attention LSTM Network: A New Model for Traffic Flow Forecasting" takes advantage of the self attention mechanism (cite attention is all you need) by combining a graph neural with attention and long short term memory networks *write more* https://www.researchgate.net/publication/330473040
-- how they represented their data
-- they just predicted traffic for the next 5 minutes given an hour's worth of data
-- they have a good explanation of GNN, GAT (graph attention networks), GAT-LSTM
 
+Additionally, the paper <a href="https://www.researchgate.net/publication/330473040"> Graph Attention LSTM Network: A New Model for Traffic Flow Forecasting", Wu, Tianlong, et al., 2018 </a>, takes advantage of the self attention mechanism, most popular for its use in Transformers, by combining a graph neural network with attention and long short term memory networks to accurately predict the temporal depencies of traffic. They predicted traffic data for the next 5 minutes using the previous 30 minutes of data; our group will adopt a similar regime for prediction. 
 
 Taking into account all the work that has already been done, we hope to devise an approach that can dynamically mix the best parts of previous research and acheive comprable, if not better, GNN performance. 
 
 ### Methods
-1. Dataset
-2. GNN
-3. some GNN variant (like a Graph-attention-network LSTM, or a Graph Convulutional Network... we can survey the literature)
-4. List the other kinds of networks we will train. we'll train multiple models and compare them to the GNN. CNN? RNN? LSTM?
+Our group will attempt to use the <a href="https://data.cityofnewyork.us/Transportation/Automated-Traffic-Volume-Counts/7ym2-wayt">"Automated Traffic Volume Counts"</a> from the city of New York open data to predict traffic flow in New York City. This dataset contains approximately 27 million rows of traffic flow data of certain roads and 15 minutes time intervals from 2010 to January 20th 2023. We intend to access this data using its provided API, involving common Python libraries such as Pandas, Requests, and NumPy. Using this data, we will construct a network graph for of the each unique 15 minute intervals and conduct time series analysis on the data using various types of Graph Neural architechtures such as Graph Neural Networks, Graph Attention Networks, LSTM's, and so on: Using the traffic data (graph) of the previous two hours to predict the next 15 minutes.
+
 
 ### Goals
 1. Predict traffic flow in San Francisco
@@ -67,5 +61,9 @@ Given that we would not want to prejudice the model for a particular environment
 
 [6] Wang, Xiaoyang, et al. “Traffic Flow Prediction via Spatial Temporal Graph Neural Network.” Proceedings of The Web Conference 2020, 2020, https://doi.org/10.1145/3366423.3380186. 
 
-[7] Xu, Keyulu Xu, et al. “How Powerful Are Graph Neural Networks?” 22 Feb. 2019, https://doi.org/https://doi.org/10.48550/arXiv.1810.00826. 
+[7] Wu, Tianlong, et al. “Graph Attention LSTM Network: A New Model for Traffic Flow Forecasting.” 2018 5th International Conference on Information Science and Control Engineering (ICISCE), 2018, https://doi.org/10.1109/icisce.2018.00058. 
+
+[8] Xu, Keyulu Xu, et al. “How Powerful Are Graph Neural Networks?” 22 Feb. 2019, https://doi.org/https://doi.org/10.48550/arXiv.1810.00826. 
+
+
 
