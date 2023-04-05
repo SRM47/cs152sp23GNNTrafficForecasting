@@ -48,6 +48,19 @@ We will closely monitor this project to ensure our network does not unfairly aff
 Given that we would not want to prejudice the model for a particular environment unfairly, we will attempt to account for this by adjusting accordingly. Additionally, the speed of vehicles will vary, as well as maneuverability and ability to change lanes. Finally, we will need to consider the car and conditions in which the model will be trained. The vehicle, driver, road conditions, weather, time of year, state driving laws, the density of police surveillance, and even the number of occupants will affect the data passed to the model. 
 
 
+### Discussion Outline
+We reformatted and feature engineered our own dataset based off of the City of New York's traffic volume dataset, which uses data from automated sensors to record the flow of vehicles within city limits. The major focus was mapping the existing data into a GNN-compatibile graph structure. We then trained 4 different neural network architectures (including GNN, CNN, etc.).
+
+One main point of analysis centers around the performance of different neural networks: we compare the final prediction accuracy and training time of each network. Accuracy is an important metric because it determines how useful a given model is: if a neural network is unable to consistently forecast traffic flow, it's not useful in the context of policy planning. Training time is a useful metric to determine model complexity: if a given neural network is highly accurate but requires exorbitant time or computing resources, it's also not very applicable.
+
+Similar work has been done by Kashyap et. Al, and our results differ/align in the following ways:
+
+You can see in this chart and associated line graph of of GNN, CNN, and RNN metrics that it supports/refutes the claims above.
+
+Given more time and resources, we would love to do a deeper dive on GNN engineering, adding more features and analyzing the impact on accuracy and training time that these additional features may have. In addition, it would be interesting to further optimize other neural network architectures and generalize these models to problems beyond just New York. After all, traffic dynamics across different metropolitan areas, regions, and even countries are highly variable.
+
+
+
 ### Works Cited
 [1] Diehl, Frederik, et al. “Graph Neural Networks for Modelling Traffic Participant Interaction.” 2019 IEEE Intelligent Vehicles Symposium (IV), 2019, https://doi.org/10.1109/ivs.2019.8814066. 
 
