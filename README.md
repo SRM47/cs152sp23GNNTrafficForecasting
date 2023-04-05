@@ -35,6 +35,10 @@ Taking into account all the work that has already been done, we hope to devise a
 ### Methods
 Our group will attempt to use the <a href="https://data.cityofnewyork.us/Transportation/Automated-Traffic-Volume-Counts/7ym2-wayt">"Automated Traffic Volume Counts"</a> from the city of New York open data to predict traffic flow in New York City. This dataset contains approximately 27 million rows of traffic flow data of certain roads and 15 minutes time intervals from 2010 to January 20th 2023. We intend to access this data using its provided API, involving common Python libraries such as Pandas, Requests, and NumPy. Using this data, we will construct a network graph for of the each unique 15 minute intervals and conduct time series analysis on the data using various types of Graph Neural architechtures such as Graph Neural Networks, Graph Attention Networks, LSTM's, and so on: Using the traffic data (graph) of the previous two hours to predict the next 15 minutes.
 
+The cleaned data looks like the graph below. There appears a clear time-series pattern that could be modelled using a time series forecasting method such as ARIMA or ETS. Instead, we will use deep learning frameworks and compare the performance of GNNs, CNNs and RNNs on this data. 
+
+<img width="686" alt="Screenshot 2023-04-04 at 10 28 35 PM" src="https://user-images.githubusercontent.com/74080246/229989007-c1a7fa0b-afe4-411b-b074-137a21e85a2d.png">
+
 
 ### Goals
 1. Predict traffic flow in San Francisco
@@ -53,7 +57,7 @@ We reformatted and feature engineered our own dataset based off of the City of N
 
 One main point of analysis centers around the performance of different neural networks: we compare the final prediction accuracy and training time of each network. Accuracy is an important metric because it determines how useful a given model is: if a neural network is unable to consistently forecast traffic flow, it's not useful in the context of policy planning. Training time is a useful metric to determine model complexity: if a given neural network is highly accurate but requires exorbitant time or computing resources, it's also not very applicable.
 
-Similar work has been done by Kashyap et. Al, and our results differ/align in the following ways:
+Similar work has been done by [Kashyap et. al., 2021](https://doi.org/10.1080/23311916.2021.2010510), and our results differ/align in the following ways:
 
 You can see in this chart and associated line graph of of GNN, CNN, and RNN metrics that it supports/refutes the claims above.
 
