@@ -63,6 +63,33 @@ You can see in this chart and associated line graph of of GNN, CNN, and RNN metr
 
 Given more time and resources, we would love to do a deeper dive on GNN engineering, adding more features and analyzing the impact on accuracy and training time that these additional features may have. In addition, it would be interesting to further optimize other neural network architectures and generalize these models to problems beyond just New York. After all, traffic dynamics across different metropolitan areas, regions, and even countries are highly variable.
 
+## What is Graph Neural Network
+A _Graph_ in a most basic sense is descibed a set of nodes, also known as vertices, $V$, and a set of edges, $E$, that connect those vertices to one another. Data with objects and relationships between those objects can be modeled as a graph. Recent developments in various neural network architectures have lead to the rising prominence of _Graph Neural Networks_: neural networks that are well suited to model graph data. Learning intricate relationships in graphically structured data falls into "geometric deep learning."
+
+There are three different types of "prediction tasks" that a graph neural network can perform: node level, edge level, and graph level predictions. This project deals only with node level predictions, that is, predicting some quality about all nodes in a graph. 
+
+In order to perform these node level predictions, each node initially begins with an embedding that describes its input data. [add content here]. Similar to convolutions in a Convolutonal Neural Network, the fundamental operation of a graph neural network is "Message Passing" which updates node embeddings by aggregating neighboring nodes' vector. This way, a deeper model, one with more "Message Passing" layers, will enforce information sharing between relevant nodes in the graph and allow for richer updated node embeddings to then pass through a Feed Forward for any downstream task (i.e. pass a node's final vector through a linear layer for either classification or regression).
+## Graph Neural Networks to Describe Traffic Data
+Applying traffic data to graphs, we can interpret traffic sensors around a given location as "nodes" and the streets connecting them the "edges" of a graph. At a given time, each "node", or traffic sensor, is assigned a vector $[x_1, x_2] \in \mathbb{R}^2$ where $x_1$ is the average speed of cars driving over that traffic sensor and $x_2$ is the traffic column over that sensor. Two nodes, or traffic sensors, are connected by an weighted edge if they are neighboring traffic sensors. The weight of an edge connecting two traffic sensors is determined by the Gaussian RBF Kernel distance between them. 
+[insert picture]
+
+The problem here, however, is that traffic introduces a time dimension. At any given moment in time, there will be a different state of traffic: even though the structure of the graph representing the physical road network does not change, the node vectors describing the speed and traffic flow over a given sensor does. Hence, for every interval, there will be a graph representing the current state of traffic for all sensors. We therefore define $[x_{1,t}, x_{2,t}] \in \mathbb{R}^2$ to be each node's vector where $x_{1,t}$ is the average speed of cars driving over that traffic sensor at tilmestep $t$ and $x_{2,t}$ is the traffic column over that sensor at tilmestep $t$.
+[insert picture]
+
+## Spatio-Temporal Graph Neural Networks
+Standard graph neural network's model spatial data very well, but this assumes that this data is static. To model spatial and temporal data like traffic, we need to add a recurrent layer on top of a graph neural network. This is the idea of a patio-temporal graph neural network: a neural network model that evolves a graph, or graphically structured data, through time. Therefore, in order to model traffic data, we first need to model the data graphically at each timestep, then use a recurrent graph neural network to use previous traffic data to previous future traffic speed and flow for future time steps. 
+
+## The formal traffic flow prediction problem
+The problem statement is as follows. Given traffic data for $t$ previous time steps, can we predict the traffic data for $T$ future time steps. For instance, if data is collected every 5 minutes, can we use 60 minutes of previous data ($t=12$ time steps) to predict traffic data for the next 30 minutes ($t=6$ time steps). In order to achieve this, we first model traffic data using a graph (nodes are traffic sensors each with node vectors of traffic speed and volume) for each time step; this will be 12 graphs. We then pass these 12 graphs into a recurrent graph neural network to then output 6 graphs that should be accurate predictions of the state of traffic 6 time steps in the future. 
+## Describe Model Architectures
+The models we used take the shape of an encoder-decoder architecture.
+[insert picture]
+We pass the 12 graphs through a TGCN to obtain the final hidden state for each of the nodes. We then take a node's hidden state and decode it using another GRU into 6 future time steps of traffic data, and do this for each node in the graph. 
+
+[insert picture]
+Another architecture we have is to use the same encoder, but just pass the hidden state vector into a linear layer with 6 output layers, each one representing the traffic speed at a given tilmestep. 
+## Future Implications
+
 
 
 ### Works Cited
