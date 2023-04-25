@@ -82,11 +82,7 @@ Standard graph neural network's model spatial data very well, but this assumes t
 ## The formal traffic flow prediction problem
 The problem statement is as follows. Given traffic data for $t$ previous time steps, can we predict the traffic data for $T$ future time steps? For instance, if data is collected every 5 minutes, can we use 60 minutes of previous data ($t=12$ time steps) to predict traffic data for the next 30 minutes ($t=6$ time steps). In order to achieve this, we first model traffic data using a graph (nodes are traffic sensors each with node vectors of traffic speed and volume) for each time step; this will be 12 graphs. We then pass these 12 graphs into a recurrent graph neural network to then output 6 graphs that should be accurate predictions of the state of traffic 6 time steps in the future. 
 
-In our case, we will be using the PEMS-BAY traffic dataset. 
-
-
-
-
+In our case, we will be using the PEMS-BAY traffic dataset. The PEMS-BAY traffic dataset is a publicly available traffic dataset collected by the California Department of Transportation (Caltrans) Performance Measurement System (PeMS) on the San Francisco Bay Area freeway network. The dataset provides traffic data, including traffic flow, speed, and occupancy, collected by inductive loop detectors installed on the freeway network. We will cover a period of 6 months, from January 1, 2017, to May 31, 2017, and includes data from 325 loop detectors on the freeway network. The dataset is provided and used in the form of numpy arrays; we also converted them into usable csv files. These numpy arrays are adjacency matrices of nodes, which is constructed by road network distance with a thresholded Gaussian kernel.
 
 ## Describe Model Architectures
 The models we used take the shape of an encoder-decoder architecture.
