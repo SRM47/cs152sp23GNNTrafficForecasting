@@ -109,9 +109,6 @@ Final Visualization
 Of course, we are ultimately dealing with spatial data that describes real physical places in the world. Our hope is that by the end of the project, we can use geotagging and other feature engineering approaches to map the output of our neural networks into a human-readable map of San Francisco. At each street, we can show the predicted speed of traffic, dynamically updating the map as we move through different times of year and day. 
 We believe such a visualization would not only prove interesting, but also analytically valuable: some trends in traffic data may not be obvious until put into the context of cartography. The complex relationships between urban design, geography, sociology, and traffic may hopefully reveal themselves to a keen observer. 
 
-## Future Implications
-
-
 
 ### Works Cited
 [1] Diehl, Frederik, et al. “Graph Neural Networks for Modelling Traffic Participant Interaction.” 2019 IEEE Intelligent Vehicles Symposium (IV), 2019, https://doi.org/10.1109/ivs.2019.8814066. 
@@ -132,5 +129,6 @@ We believe such a visualization would not only prove interesting, but also analy
 
 
 
-### Reflections
-We are very happy men. 
+### Reflections and Future Implications
+
+This project showed the potential of using graph neural networks for modeling traffic data as opposed to using other conventional methods such as recurrent neural networks. 
