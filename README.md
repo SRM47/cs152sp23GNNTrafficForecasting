@@ -37,7 +37,9 @@ We use Pytorch and Pytorch geometric to build the frameworks of these graph neur
 Useful predictors to predict traffic include: previous traffic flow, the time of day, the time of year, or weather. For this project, we will only include historical traffic flow data and the time of day data to predict the traffic flow data for future timesteps. Because our model is highly localized to 1 and a half hour windows, the time of year will not impact the prediction so much, and weather data is a stretch goal for us to achieve later.
 
 The cleaned data looks like the graph below. There appears a clear time-series pattern that could be modelled using a time series forecasting method such as ARIMA or ETS. Instead, we will use deep learning frameworks and compare the performance of GNNs, CNNs and RNNs on this data. 
-<img width="686" alt="Screenshot 2023-04-04 at 10 28 35 PM" src="https://user-images.githubusercontent.com/74080246/229989007-c1a7fa0b-afe4-411b-b074-137a21e85a2d.png">
+
+![double_stacked_0_360](https://user-images.githubusercontent.com/98058773/236723501-1f5d1b35-d90d-4ce5-95c5-f410566838aa.png)
+
 
 ### Goals
 1. Predict traffic flow in San Francisco
@@ -96,7 +98,7 @@ A big struggle was feature engineering and data wrangling: RNNs must take in a t
 
 ### Final Visualization
 
-
+<img width="686" alt="bruh" src="double_stacked_0_360.png">
 
 Of course, we are ultimately dealing with spatial data that describes real physical places in the world. Our hope was that by the end of the project, we would be able to use geotagging and other feature engineering approaches to map the output of our neural networks into a human-readable map of San Francisco. At each street, we would show the predicted speed of traffic, dynamically updating the map as we move through different times of year and day. 
 We believe such a visualization would not only prove interesting, but also analytically valuable: some trends in traffic data may not be obvious until put into the context of cartography. The complex relationships between urban design, geography, sociology, and traffic may hopefully reveal themselves to a keen observer. 
