@@ -51,7 +51,8 @@ The cleaned data looks like the graph below. There appears a clear time-series p
 We will closely monitor this project to ensure our network does not unfairly affect specific areas or groups. Though we are limiting our project only to consider traffic within the United States, to keep consistency amongst laws and customs, the type of driving, vehicles, and demographics will change from state to state, county to county, and even town to town. One such factor that we will consider is driving habits. The attitude of safe driving and speed limits will be subject to the territory. Similarly, weather conditions and the general geographical landscape will change drastically nationwide. A model trained in a bustling metropolitan will not necessarily be able to account for a snowstorm in a sparse rural area. 
 Given that we would not want to prejudice the model for a particular environment unfairly, we will attempt to account for this by adjusting accordingly. Additionally, the speed of vehicles will vary, as well as maneuverability and ability to change lanes. Finally, we will need to consider the car and conditions in which the model will be trained. The vehicle, driver, road conditions, weather, time of year, state driving laws, the density of police surveillance, and even the number of occupants will affect the data passed to the model. 
 
-## What is a Graph Neural Network
+## Graph Neural Networks
+### What is a Graph Neural Network
 A _Graph_ in a most basic sense is described a set of nodes, also known as vertices, $V$, and a set of edges, $E$, that connect those vertices to one another. Data with objects and relationships between those objects can be modeled as a graph. Recent developments in various neural network architectures have lead to the rising prominence of _Graph Neural Networks_: neural networks that are well suited to model graphically structured data. Learning intricate relationships in graphically structured data falls into "geometric deep learning."
 
 There are three different types of "prediction tasks" that a graph neural network can perform: node level, edge level, and graph level predictions. This project deals only with node level predictions, that is, predicting some quality about the nodes in a graph. 
@@ -73,33 +74,42 @@ To be more explicit on the time of day, there are 288 five-minute intervals in a
 ### Spatio-Temporal Graph Neural Networks
 Standard graph neural network's model spatial data very well, but this assumes that this data is static. To model spatial and temporal data like traffic, we need to add a recurrent layer on top of a graph neural network. This is the idea of a patio-temporal graph neural network: a neural network model that evolves a graph, or graphically structured data, through time. Therefore, in order to model traffic data, we first need to model the data graphically at each timestep, then use a recurrent graph neural network to use previous traffic data to previous future traffic speed and flow for future time steps. 
 
-### The formal traffic flow prediction problem
-The problem statement is as follows. Given traffic data for $t$ previous time steps, can we predict the traffic data for $T$ future time steps? For instance, if data is collected every 5 minutes, can we use 60 minutes of previous data ($t=12$ time steps) to predict traffic data for the next 30 minutes ($t=6$ time steps). In order to achieve this, we first model traffic data using a graph (nodes are traffic sensors each with node vectors of traffic speed and volume) for each time step; this will be 12 graphs. We then pass these 12 graphs into a recurrent graph neural network to then output 6 graphs that should be accurate predictions of the state of traffic 6 time steps in the future. 
 
-In our case, we will be using the PEMS-BAY traffic dataset. The PEMS-BAY traffic dataset is a publicly available traffic dataset collected by the California Department of Transportation (Caltrans) Performance Measurement System (PeMS) on the San Francisco Bay Area freeway network. The dataset provides traffic data, including traffic flow, speed, and occupancy, collected by inductive loop detectors installed on the freeway network. We will cover a period of 6 months, from January 1, 2017, to May 31, 2017, and includes data from 325 loop detectors on the freeway network. The dataset is provided and used in the form of numpy arrays; we also converted them into usable csv files. These numpy arrays are adjacency matrices of nodes, which is constructed by road network distance with a thresholded Gaussian kernel.
-
-### Describe Model Architectures
-The models we used take the shape of an encoder-decoder architecture.
-[insert picture]
-We pass the 12 graphs through a TGCN to obtain the final hidden state for each of the nodes. We then take a node's hidden state and decode it using another GRU into 6 future time steps of traffic data, and do this for each node in the graph. 
-
-[insert picture]
-Another architecture we have is to use the same encoder, but just pass the hidden state vector into a linear layer with 6 output layers, each one representing the traffic speed at a given time step. 
-
-
-## RNN:
+## Recurrent Neural Networks
 Recurrent neural networks (RNNs) are a model architecture well suited to inference on time series and sequential datasets—this unique power is due to their ability to take into account and learn from an entire history of past inputs at any one given step. Recent history has seen the increased popularity of not only basic RNNs, but also the closely related Long Short-Term Memory (LSTM) and Gated Recurrent Units (GRUs) neural networks. 
 
-### RNN - Motivation
+### Motivation
 
 We believe RNNs translate well to the traffic prediction problem due to its naturally sequential and additive nature: the most important part of how people are driving right now is how other cars have been behaving in the past 15, 30, and 120 minutes. Furthermore, users will generally desire proximate traffic information, so a short range prediction such as this will be most helpful for 'real world' applications. We want our model to take into account a sliding window of past traffic data, building upon its knowledge of recent history to make an informed guess of the near future. 
 
 In addition, RNN performance serves as a useful baseline for our evaluation of GNN approaches. As a “tried-and-true” mainstream approach to solving sequential problems, we may compare and contrast the accuracy and training complexity of cutting-edge GNN technology against standards set by RNNs, LSTMs, and GRUs. For our purposes, we decided that an LSTM would be the most compelling type of RNN to compare to the GNN we'd developed. 
 
-### RNN - Methodology
+### Methodology
 Our first priority was to make a functional RNN, then move on the various augmentations and testing of how use of such models may result in differing outputs. Once training is complete, we would directly compare the inference accuracy and training time to that of our GNNs, as well as past results in literature. 
 
 A big struggle was feature engineering and data wrangling: RNNs must take in a time-series sequence of input vectors that contain consistent formatting and information across the entire dataset. Due to large gaps in sensor coverage across time and space in the New York City traffic data, we were forced to abondon our New ork traffic dataset to the more complete San Francisco transit dataset—the vectors converted from NYC were too inconsistent to provide decent input. Once the shift was made, we were able to use PyTorch's existing RNN framework to design a LSTM recurrent neural network that predicted future traffic volume.
+
+## The formal traffic flow prediction problem
+The problem statement is as follows. Given traffic data for $t$ previous time steps, can we predict the traffic data for $T$ future time steps? For instance, if data is collected every 5 minutes, can we use 60 minutes of previous data ($t=12$ time steps) to predict traffic data for the next 30 minutes ($t=6$ time steps). In order to achieve this, we first model traffic data using a graph (nodes are traffic sensors each with node vectors of traffic speed and volume) for each time step; this will be 12 graphs. We then pass these 12 graphs into a recurrent graph neural network to then output 6 graphs that should be accurate predictions of the state of traffic 6 time steps in the future. 
+
+In our case, we will be using the PEMS-BAY traffic dataset. The PEMS-BAY traffic dataset is a publicly available traffic dataset collected by the California Department of Transportation (Caltrans) Performance Measurement System (PeMS) on the San Francisco Bay Area freeway network. The dataset provides traffic data, including traffic flow, speed, and occupancy, collected by inductive loop detectors installed on the freeway network. We will cover a period of 6 months, from January 1, 2017, to May 31, 2017, and includes data from 325 loop detectors on the freeway network. The dataset is provided and used in the form of numpy arrays; we also converted them into usable csv files. These numpy arrays are adjacency matrices of nodes, which is constructed by road network distance with a thresholded Gaussian kernel.
+
+## Model Architectures
+### RNN Architectures
+### GNN Architectures
+This project also compares the effectiveness of two similar graph neural network architechtures for traffic speed prediction. Both models follow an encoder-decoder architecture. The two models differ only in the decoder they use.
+
+Both models use a Recurrent Graph Attention Network, which compiles all 12 input graphs into a single graph where each node's final embedding is a 32 dimensional context vector to be decoded into the 6 predicted timesteps.
+
+[insert overarching picture]
+
+The first decoder simply conducts single-shot prediction, where each of the 325 context vectors are passed into a feed forward neural network with six output neurons as proxies for the predictions of the next 6 timesteps for the node that corresponds to the context vector.
+
+[insert picture]
+
+The second decoder is more complex, where the context vector for a given node is fed into a two-layer LSTM decoder that recurrently predicts the next 6 timesteps. Similar to the single-shot decoder, we use this LSTM on all 325 context vectors to gather predictions for all sensors in the graph.
+
+[insert picture]
 
 ### Final Visualization
 
