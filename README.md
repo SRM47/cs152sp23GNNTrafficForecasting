@@ -81,21 +81,24 @@ Another architecture we have is to use the same encoder, but just pass the hidde
 
 
 ## RNN:
-Recurrent neural networks (RNNs) are a model architecture well suited to inference on time series and sequential datasets—this unique power is due to their ability to take into account and learn from an entire history of past inputs at any one given step. Recent history has seen the increased popularity of not only basic RNNs, but also the closely related Long Short-Term Memory (LSTM) and Gated Recurrent Units (GRUs) neural networks.
+Recurrent neural networks (RNNs) are a model architecture well suited to inference on time series and sequential datasets—this unique power is due to their ability to take into account and learn from an entire history of past inputs at any one given step. Recent history has seen the increased popularity of not only basic RNNs, but also the closely related Long Short-Term Memory (LSTM) and Gated Recurrent Units (GRUs) neural networks. 
 
 ### RNN - Motivation
 
 We believe RNNs translate well to the traffic prediction problem due to its naturally sequential and additive nature: the most important part of how people are driving right now is how other cars have been behaving in the past 15, 30, and 120 minutes. Furthermore, users will generally desire proximate traffic information, so a short range prediction such as this will be most helpful for 'real world' applications. We want our model to take into account a sliding window of past traffic data, building upon its knowledge of recent history to make an informed guess of the near future. 
 
-In addition, RNN performance serves as a useful baseline for our evaluation of GNN approaches. As a “tried-and-true” mainstream approach to solving sequential problems, we may compare and contrast the accuracy and training complexity of cutting-edge GNN technology against standards set by RNNs, LSTMs, and GRUs. 
+In addition, RNN performance serves as a useful baseline for our evaluation of GNN approaches. As a “tried-and-true” mainstream approach to solving sequential problems, we may compare and contrast the accuracy and training complexity of cutting-edge GNN technology against standards set by RNNs, LSTMs, and GRUs. For our purposes, we decided that an LSTM would be the most compelling type of RNN to compare to the GNN we'd developed. 
 
 ### RNN - Methodology
 Our first priority was to make a functional RNN, then move on the various augmentations and testing of how use of such models may result in differing outputs. Once training is complete, we would directly compare the inference accuracy and training time to that of our GNNs, as well as past results in literature. 
 
-A big struggle was feature engineering and data wrangling: RNNs must take in a time-series sequence of input vectors that contain consistent formatting and information across the entire dataset. Due to large gaps in sensor coverage across time and space in the New York City traffic data, we were forced to abondon our New ork traffic dataset to the more complete San Francisco transit dataset—the vectors converted from NYC were too inconsistent to provide decent input. Once the shift was made, we were able to use PyTorch's existing RNN framework to design an Long Short-Term Memory (LSTM) recurrent neural network that predicted future traffic volume. 
+A big struggle was feature engineering and data wrangling: RNNs must take in a time-series sequence of input vectors that contain consistent formatting and information across the entire dataset. Due to large gaps in sensor coverage across time and space in the New York City traffic data, we were forced to abondon our New ork traffic dataset to the more complete San Francisco transit dataset—the vectors converted from NYC were too inconsistent to provide decent input. Once the shift was made, we were able to use PyTorch's existing RNN framework to design a LSTM recurrent neural network that predicted future traffic volume.
 
 ### Final Visualization
-Of course, we are ultimately dealing with spatial data that describes real physical places in the world. Our hope is that by the end of the project, we can use geotagging and other feature engineering approaches to map the output of our neural networks into a human-readable map of San Francisco. At each street, we can show the predicted speed of traffic, dynamically updating the map as we move through different times of year and day. 
+
+
+
+Of course, we are ultimately dealing with spatial data that describes real physical places in the world. Our hope was that by the end of the project, we would be able to use geotagging and other feature engineering approaches to map the output of our neural networks into a human-readable map of San Francisco. At each street, we would show the predicted speed of traffic, dynamically updating the map as we move through different times of year and day. 
 We believe such a visualization would not only prove interesting, but also analytically valuable: some trends in traffic data may not be obvious until put into the context of cartography. The complex relationships between urban design, geography, sociology, and traffic may hopefully reveal themselves to a keen observer. 
 
 ### Discussion Outline
