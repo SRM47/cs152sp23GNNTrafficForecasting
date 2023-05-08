@@ -114,7 +114,11 @@ The second decoder is more complex, where the context vector for a given node is
 <center>
 <img width="400" alt="decoder lstm" src="lstm_decoder.png">
 </center>
-### Final Visualization
+
+
+## Results
+
+### RNN
 
 <center>
 <img width="400" alt="bruh" src="double_stacked_0_360.png">
@@ -122,6 +126,23 @@ The second decoder is more complex, where the context vector for a given node is
 
 Of course, we are ultimately dealing with spatial data that describes real physical places in the world. Our hope was that by the end of the project, we would be able to use geotagging and other feature engineering approaches to map the output of our neural networks into a human-readable map of San Francisco. At each street, we would show the predicted speed of traffic, dynamically updating the map as we move through different times of year and day. 
 We believe such a visualization would not only prove interesting, but also analytically valuable: some trends in traffic data may not be obvious until put into the context of cartography. The complex relationships between urban design, geography, sociology, and traffic may hopefully reveal themselves to a keen observer. 
+
+
+### GNN
+Training the single shot decoder took 7 minutes in total while training the LSTM decoder took around 22 minutes. The loss plots for both of these models went down, but the rate of decrease was quite low. Notibly, there was no sign of overfitting as both training and validation loss decreases for both models during training. 
+[insert picture]
+
+
+After training the models with the specified hyperparameters, we used the testing dataset and compared it to our forecasts. To make the plots below, we aggregated all speeds as the same time during the day, across all different days in the test set, which explains the error regions around the curves. The plots below are show three curves for 6 different senors. The blue line plots the actual (average) speeds, the orange line plots the forecast from the LSTM decoder architecture, and the green line plots the forecast from the Single-shot decoder architecture. 
+
+<center>
+<img width="450" alt="bruh" src="sensor_drawings.png">
+</center>
+
+Clearly, there are instances were these models perform well and other instances where they do not. First, both models perform well when traffic data is not sporatic and somewhat more smooth. For instance, in sensors 129 and 187, both models very accurately followed the true data. Notibly, however, these two example hghlight that the LSTM decoder performs slightly better, as the orange line generally matches the blue line more than the green line. In instance where the traffic speeds are slightly more sporatic, for instance on sensor 0, 292, and 269, both models begin to deviate away from the true data. This is likely due to the highly complex relationships between traffic at different times that these neural models just could not predict: when traffic is more volatile, it becomes more unpredictable. Additionally, the only factors we are considering are previous traffic speeds and the time of day. Other factors such as weather, crashes, and so on are also important variables to consider, but weren't in this model. Again, the diagrams for sensors 0, 292, 269 all generally visualize that the orange line more closely follows the blue line than the green line, suggesting that the model with the LSTM decoder modelled the data better. Continuing the trend of prediction accuracy and volatility, the predictions for sensor 47 were not the best. Clearly, sensor 47 experience huge and seemingly random fluctuations in traffic speeds throughout the day, which may have made it difficult for these models to accurately detect the trend. 
+
+From these plots, two findings are clear. First, when traffic is moer volatile, predictions and therefore forecasts tend to be less accurate. Second, the LSTM decoder, on average, performs better than the single shot decoder; this finding specifically make sense because the LSTM decoder is a more complex model, which allows for mor flexibility and expressibility. 
+
 
 ### Discussion Outline
 We reformatted and feature engineered our own dataset based off of the PEMS Bay Area, which uses data from automated sensors to record the flow of vehicles within city limits. The major focus was mapping the existing data into a GNN-compatible graph structure. We then trained 2 different neural network architectures (including GNN, LSTM, etc.).
