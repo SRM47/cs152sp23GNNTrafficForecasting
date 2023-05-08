@@ -62,11 +62,9 @@ In order to perform these node level predictions, each node initially begins wit
 ### Graph Neural Networks to Describe Traffic Data
 Applying traffic data to graphs, we can interpret traffic sensors around a given location as "nodes" and the streets connecting them the "edges" of a graph. At a given time, each "node", or traffic sensor, is assigned a vector $[x_1, x_2] \in \mathbb{R}^2$ where $x_1$ is the average speed of cars driving over that traffic sensor in a given 5 minute period and $x_2$ is a numeric representation of the time of day, between 0 and 1. Two nodes, or traffic sensors, are connected by an weighted edge if they are neighboring traffic sensors. The weight of an edge connecting two traffic sensors is determined by the Gaussian RBF Kernel distance between them. 
 
-
-
 The problem here, however, is that traffic introduces a time dimension. At different times throughout the day, the traffic at any given road will change: even though the structure of the graph representing the physical road network does not change, the node vectors describing the speed and traffic flow over a given sensor does. Hence, for every 5 minute interval, there will be a graph representing the current state of traffic for all sensors. We therefore define $[x_{1,t}, x_{2,t}] \in \mathbb{R}^2$ to be each node's vector where $x_{1,t}$ is the average speed of cars driving over that traffic sensor at tilmestep $t$ and $x_{2,t}$ is the time of day corresponding to $t$.
 
-[insert picture]
+<img width="686" alt="Graph Neural Network Structure" src="graph.png">
 
 To be more explicit on the time of day, there are 288 five-minute intervals in a day. The time of day measure ranges from 0 to 1, and increments by \frac{1}{288} to denote the specific time of day for a given traffic speed measurement. A value of 0 would correspond to 12am, and a value of 0.16319 the 47th (0.16319 \times 288) five-minute interval in a day, which is around 3:55am.
 
@@ -101,11 +99,11 @@ This project also compares the effectiveness of two similar graph neural network
 
 Both models use a Recurrent Graph Attention Network, which compiles all 12 input graphs into a single graph where each node's final embedding is a 32 dimensional context vector to be decoded into the 6 predicted timesteps.
 
-[insert overarching picture]
+<img width="686" alt="Graph Neural Network Model" src="full_ach.png">
 
 The first decoder simply conducts single-shot prediction, where each of the 325 context vectors are passed into a feed forward neural network with six output neurons as proxies for the predictions of the next 6 timesteps for the node that corresponds to the context vector.
 
-[insert picture]
+<img width="686" alt="single shot decoder" src="single_shot.png">
 
 The second decoder is more complex, where the context vector for a given node is fed into a two-layer LSTM decoder that recurrently predicts the next 6 timesteps. Similar to the single-shot decoder, we use this LSTM on all 325 context vectors to gather predictions for all sensors in the graph.
 
@@ -113,7 +111,7 @@ The second decoder is more complex, where the context vector for a given node is
 
 ### Final Visualization
 
-<img width="686" alt="bruh" src="double_stacked_0_360.png">
+<img width="686" alt="decoder lstm" src="lstm_decoder.png">
 
 Of course, we are ultimately dealing with spatial data that describes real physical places in the world. Our hope was that by the end of the project, we would be able to use geotagging and other feature engineering approaches to map the output of our neural networks into a human-readable map of San Francisco. At each street, we would show the predicted speed of traffic, dynamically updating the map as we move through different times of year and day. 
 We believe such a visualization would not only prove interesting, but also analytically valuable: some trends in traffic data may not be obvious until put into the context of cartography. The complex relationships between urban design, geography, sociology, and traffic may hopefully reveal themselves to a keen observer. 
