@@ -68,7 +68,7 @@ The problem here, however, is that traffic introduces a time dimension. At diffe
 <img width="300" alt="Graph Neural Network Structure" src="graph.png">
  </center>
 
-To be more explicit on the time of day, there are 288 five-minute intervals in a day. The time of day measure ranges from 0 to 1, and increments by \frac{1}{288} to denote the specific time of day for a given traffic speed measurement. A value of 0 would correspond to 12am, and a value of 0.16319 the 47th (0.16319 \times 288) five-minute interval in a day, which is around 3:55am.
+To be more explicit on the time of day, there are 288 five-minute intervals in a day. The time of day measure ranges from 0 to 1, and increments by $\frac{1}{288}$ to denote the specific time of day for a given traffic speed measurement. A value of 0 would correspond to 12am, and a value of 0.16319 the 47th ($0.16319 \times 288$) five-minute interval in a day, which is around 3:55am.
 
 
 ### Spatio-Temporal Graph Neural Networks
