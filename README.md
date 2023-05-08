@@ -108,6 +108,9 @@ Given more time and resources, we would love to do a deeper dive on GNN engineer
 ### Reflection
 During this process of learning, we chose to explore a relatively new neural network model and learn its intricacies to a degree sufficient enough to apply to a complex traffic flow problem. To the extent that the project was about learning and growth, we achieved exactly that. We successfully implemented these models and trained them…the code worked! Although we weren’t able to visualize our outputs, we still managed to train good traffic prediction models. The majority of the work for this project was finding a good dataset and data preprocessing. We bounced around from New York traffic data to Bay Area traffic data until we settled on a dataset already formatted in a suitable format to train a model on. All in all, we are happy with our outcomes: we learned a lot, and had fun while doing it.
 
+### Future Implications
+
+This project showed the potential of using graph neural networks for modeling traffic data as opposed to using other conventional methods such as recurrent neural networks. The implications fo future research have no limit. An exploration into the feasability for these methods to be distilled into a usable application, specifically for use as a way to more efficently navigate roads. The movement of goods and humans is an integral part of existence. With the increase in the population and the necessity of social wellbeing of humans, travel is exponentially growing. As technology is evolving day by day so is the number of vehicles increasing. With this rapid rate of increase in vehicle, management of movement of vehicles is very critical. Vehicular management helps in optimizing the travel time and cost of the travel. For developing a precise vehicular management system, it is essential to have accurate background information. Traffic flow is one of the most important data which is required for developing a precise vehicular management system.
 
 ### Works Cited
 [1] Diehl, Frederik, et al. “Graph Neural Networks for Modelling Traffic Participant Interaction.” 2019 IEEE Intelligent Vehicles Symposium (IV), 2019, https://doi.org/10.1109/ivs.2019.8814066. 
@@ -120,7 +123,3 @@ During this process of learning, we chose to explore a relatively new neural net
 [8] Xu, Keyulu Xu, et al. “How Powerful Are Graph Neural Networks?” 22 Feb. 2019, https://doi.org/https://doi.org/10.48550/arXiv.1810.00826. 
 
 
-
-### Reflections and Future Implications
-
-This project showed the potential of using graph neural networks for modeling traffic data as opposed to using other conventional methods such as recurrent neural networks. 
