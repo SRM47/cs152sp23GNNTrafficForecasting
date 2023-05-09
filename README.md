@@ -190,9 +190,10 @@ num_epochs = 10
 
 ### RNN
 
-<center>
-<img width="400" alt="bruh" src="double_stacked_0_360.png">
-</center>
+![5281a2b1-0e58-4e30-a545-421e45fcc286](https://user-images.githubusercontent.com/98058773/237000813-eafd32af-06cc-4477-af55-0c2ccde8d288.png)
+
+![8bd25f95-bc8d-4287-967c-cad437a160d5](https://user-images.githubusercontent.com/98058773/237000823-888b4ca7-1cc1-452f-9d58-d59104133920.png)
+
 
 Of course, we are ultimately dealing with spatial data that describes real physical places in the world. Our hope was that by the end of the project, we would be able to use geotagging and other feature engineering approaches to map the output of our neural networks into a human-readable map of San Francisco. At each street, we would show the predicted speed of traffic, dynamically updating the map as we move through different times of year and day. 
 We believe such a visualization would not only prove interesting, but also analytically valuable: some trends in traffic data may not be obvious until put into the context of cartography. The complex relationships between urban design, geography, sociology, and traffic may hopefully reveal themselves to a keen observer. 
