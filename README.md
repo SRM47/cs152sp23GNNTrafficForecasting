@@ -97,15 +97,15 @@ In our case, we will be using the PEMS-BAY traffic dataset. The PEMS-BAY traffic
 ## Model Architectures
 ### RNN Architectures
 
-This project uses LSTM to build a time sries prediction neural network. The problem is a regression, though more complicated than a simple predictions because each timestep has 325 features/sensors. 
+This project uses LSTM to build a time series prediction neural network. The problem is a regression, though more complicated than a simple predictions because each timestep has 325 features/sensors. 
 
-The model starts by compiling the data into a numpy array of n x m, where n = number of sensors and m = number of timesteps. The model then splits the timeseries into training and testing data, allocating 67% for training. It should be noted that our data is normalized around 1.0, as to more effectivly utilize the LSTM. 
+The model starts by compiling the data into a NumPy array of n x m, where n = number of sensors and m = number of timesteps. The model then splits the timeseries into training and testing data, allocating 67% for training. It should be noted that our data is normalized around 1.0, as to more effectivly utilize the LSTM. 
 
 It then transforms the time series into a prediction dataset using a simple class. 
 
 <img width="753" alt="Screenshot 2023-05-08 at 5 08 35 PM" src="https://user-images.githubusercontent.com/98058773/236962460-96afe2bf-e37b-425f-8202-a1aa1f5f5583.png">
 
-The crux of this design is the prediction window, standard for most time series predction. The parameter that conrtols this is lookback. The look back period dictates how much data the network is allowed to look at when making it's prediction. 
+The crux of this design is the prediction window, standard for most time series prediction. The parameter that controls this is lookback. The look back period dictates how much data the network is allowed to look at when making it's prediction. 
 
 We then create the model as a class in which a LSTM layer and a fully connected layer are used. The output of nn.LSTM() is a tuple. The first element is the generated hidden states, one for each time step of the input. The second element is the LSTM cell’s memory and hidden states. The output of hidden states is further processed by a fully-connected layer to produce a single regression result. 
 
