@@ -201,6 +201,9 @@ These graphs shows the actual and predicted traffic flow for a single day across
 
 This graph show the loss for our training and testing data over for each model (stacked and unstacked). 
 
+We can see that the more complex neural network (Stacked LSTM) actually performs worse than the Single-Layer LSTM. Across 50 epochs of training, the Stacked LSTM exhibits higher training and test loss; in inference, the Single-Layer LSTM more reliably follows the actual speed throughout a randomly selected 24-hour period. We believe this has to do with the ultimate simplicity of our problem complex: a deeper network generalizes worse to inference. This is an important lesson for future work!
+
+
 Of course, we are ultimately dealing with spatial data that describes real physical places in the world. Our hope was that by the end of the project, we would be able to use geotagging and other feature engineering approaches to map the output of our neural networks into a human-readable map of San Francisco. At each street, we would show the predicted speed of traffic, dynamically updating the map as we move through different times of year and day. 
 We believe such a visualization would not only prove interesting, but also analytically valuable: some trends in traffic data may not be obvious until put into the context of cartography. The complex relationships between urban design, geography, sociology, and traffic may hopefully reveal themselves to a keen observer. 
 
