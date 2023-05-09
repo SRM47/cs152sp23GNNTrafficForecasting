@@ -145,6 +145,8 @@ Our hyperparameters are as follows:
 
 Because it is a regression problem, MSE is chosen as the loss function, which is minimized by Adam optimizer. 
 
+Our LSTM code was also influeced by the article “LSTM for Time Series Prediction in Pytorch" by Adrian Tam. 
+
 ### GNN Architectures
 This project also compares the effectiveness of two similar graph neural network architechtures for traffic speed prediction. Both models follow an encoder-decoder architecture. The two models differ only in the decoder they use. As there are 325 traffic sensors, the graph representing the traffic state at each timestep will therefore have 325 nodes, each with corresponding two dimensional input vectors. 
 
@@ -249,5 +251,7 @@ This project showed the potential of using graph neural networks for modeling tr
 [7] Wu, Tianlong, et al. “Graph Attention LSTM Network: A New Model for Traffic Flow Forecasting.” 2018 5th International Conference on Information Science and Control Engineering (ICISCE), 2018, https://doi.org/10.1109/icisce.2018.00058. 
 
 [8] Xu, Keyulu Xu, et al. “How Powerful Are Graph Neural Networks?” 22 Feb. 2019, https://doi.org/https://doi.org/10.48550/arXiv.1810.00826. 
+
+[9] Tam, Adrian. “LSTM for Time Series Prediction in Pytorch.” MachineLearningMastery.Com, 7 Apr. 2023, machinelearningmastery.com/lstm-for-time-series-prediction-in-pytorch/. 
 
 
