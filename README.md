@@ -2,7 +2,11 @@
 ## Graph Neural Network Traffic Flow Forecasting in San Francisco
 ### Members
 Austin Zang, Devin Guinney, Ethan Lee, Saatvik Kher, Sam Malik
-### Introduction
+
+## Abstract
+In this project we explore the efficacy of Recurrent Neural Networks, and different types of Temporal Graph Neural Networks to predict traffic speeds across the Bay Area. In this exploration, we compare stacked and unstacked RNN's with two different encoder-decoder temporal GNN's with differing decoders. We find that the Temporal Graph Neural Network with an LSTM decoder performs best at predicting traffic speeds in the Bay Area. 
+
+## Introduction
 
 Traffic congestion across the United States is a problem often discussed both academically and casually. On a more macro scale, it's a cause for economic inefficiency, pollution, and the deterioration of human health. On a micro scale, almost everyone experiences a "bad day" in transit.
 
