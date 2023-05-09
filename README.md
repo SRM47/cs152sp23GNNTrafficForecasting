@@ -51,7 +51,7 @@ Useful predictors to predict traffic include: previous traffic flow, the time of
 
 The cleaned data looks like the graph below. There appears a clear time-series pattern that could be modelled using a time series forecasting method such as ARIMA or ETS. Instead, we will use deep learning frameworks and compare the performance of GNNs, CNNs and RNNs on this data. 
 
-<img width="686" alt="Screenshot 2023-04-04 at 10 28 35 PM" src="https://user-images.githubusercontent.com/74080246/229989007-c1a7fa0b-afe4-411b-b074-137a21e85a2d.png">
+<img width="687" alt="Screenshot 2023-05-09 at 11 07 39 AM" src="https://user-images.githubusercontent.com/74080246/237003729-5d5fa79e-e03e-41e3-847c-d4eaea4805ed.png">
 
 
 ## Goals
