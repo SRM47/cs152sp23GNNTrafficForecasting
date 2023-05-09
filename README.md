@@ -4,8 +4,9 @@
 Austin Zang, Devin Guinney, Ethan Lee, Saatvik Kher, Sam Malik
 
 ## Project Demo 
-https://drive.google.com/file/d/1GS019k4vWmQMY-FXG-0QYN6pBOB_Y6W8/view?usp=sharing
+Drive Link: https://drive.google.com/file/d/1GS019k4vWmQMY-FXG-0QYN6pBOB_Y6W8/view?usp=sharing
 
+Youtube Link: https://www.youtube.com/watch?v=AkOuySm2dE8
 
 
 ## Abstract
