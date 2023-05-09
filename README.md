@@ -64,7 +64,10 @@ The cleaned data looks like the graph below. There appears a clear time-series p
 We will closely monitor this project to ensure our network does not unfairly affect specific areas or groups. Though we are limiting our project only to consider traffic within the United States, to keep consistency amongst laws and customs, the type of driving, vehicles, and demographics will change from state to state, county to county, and even town to town. One such factor that we will consider is driving habits. The attitude of safe driving and speed limits will be subject to the territory. Similarly, weather conditions and the general geographical landscape will change drastically nationwide. A model trained in a bustling metropolitan will not necessarily be able to account for a snowstorm in a sparse rural area. 
 
 
-Given that we would not want to prejudice the model for a particular environment unfairly, we will attempt to account for this by using a representative dataset of equal proportion. Additionally, the speed of vehicles will vary, as well as maneuverability and ability to change lanes. Finally, we will need to consider the car and conditions in which the model will be trained. The vehicle, driver, road conditions, weather, time of year, state driving laws, the density of police surveillance, and even the number of occupants will affect the data passed to the model. 
+Given that we would not want to prejudice the model for a particular environment unfairly, we will attempt to account for this by using a representative dataset of equal proportion. Additionally, the speed of vehicles will vary, as well as maneuverability and ability to change lanes. 
+
+
+Finally, we will need to consider the car and conditions in which the model will be trained. The vehicle, driver, road conditions, weather, time of year, state driving laws, the density of police surveillance, and even the number of occupants will affect the data passed to the model. 
 
 ## Graph Neural Networks
 ### What is a Graph Neural Network
