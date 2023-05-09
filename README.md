@@ -145,7 +145,9 @@ We believe such a visualization would not only prove interesting, but also analy
 
 ### GNN
 Training the single shot decoder took 7 minutes in total while training the LSTM decoder took around 22 minutes. The loss plots for both of these models went down, but the rate of decrease was quite low. Notibly, there was no sign of overfitting as both training and validation loss decreases for both models during training. 
-[insert picture]
+<center>
+<img width="650" alt="bruh" src="loss_plots.png">
+</center>
 
 
 After training the models with the specified hyperparameters, we used the testing dataset and compared it to our forecasts. To make the plots below, we aggregated all speeds as the same time during the day, across all different days in the test set, which explains the error regions around the curves. The plots below are show three curves for 6 different senors. The blue line plots the actual (average) speeds, the orange line plots the forecast from the LSTM decoder architecture, and the green line plots the forecast from the Single-shot decoder architecture. 
