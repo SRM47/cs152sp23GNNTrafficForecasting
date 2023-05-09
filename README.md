@@ -41,7 +41,7 @@ Taking into account all the work that has already been done, we hope to devise a
 
 
 ## Methods
-We will employ the use of a recurrent graph neural network model, a Gated Recurrent Unit Graph Attention Network, and a stacked Long Short Term Memory network to use 1 hour of previous traffic data to predict the next 15 minutes. The dataset we intend to use is the PEMS-BAY traffic dataset. This is a traffic dataset collected by CalTrans Performance Measurement System (PeMS). This project uses a pre-cleaned version of this dataset (Pytorch geometric provided dataset) that preselected 325 sensors in the Bay Areas with 6 months of data ranging from January 1st 2017 to May 31th 2017. The distribution of these sensors is below. The readings of these sensors are aggregated into 5 minute slots. The layout of the 325 sensor around the bay area are as follows
+We will employ the use of a recurrent graph neural network model, a Gated Recurrent Unit Graph Attention Network, and a stacked Long Short Term Memory network to use 1 hour of previous traffic data to predict the next 15 minutes. The dataset we intend to use is the PEMS-BAY traffic dataset. This is a traffic dataset collected by CalTrans Performance Measurement System (PeMS). This project uses a pre-cleaned version of this dataset (Pytorch geometric provided dataset) that preselected 325 sensors in the Bay Areas with 6 months of data ranging from January 1st 2017 to May 31th 2017. The distribution of these sensors is below. The readings of these sensors are aggregated into 5 minute slots. The layout of the 325 sensor around the bay area are as follows [Image Source](https://arxiv.org/pdf/1707.01926v3.pdf)">
 
 <img width="686" alt="Pems Bay Traffic Sensors" src="pems_bay_traffic.png">
 
