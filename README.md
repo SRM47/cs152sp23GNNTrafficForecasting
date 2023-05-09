@@ -2,7 +2,14 @@
 ## Graph Neural Network Traffic Flow Forecasting in San Francisco
 ### Members
 Austin Zang, Devin Guinney, Ethan Lee, Saatvik Kher, Sam Malik
-### Introduction
+
+## Project Demo Like
+[Link here]
+
+## Abstract
+In this project we explore the efficacy of Recurrent Neural Networks, and different types of Temporal Graph Neural Networks to predict traffic speeds across the Bay Area. In this exploration, we compare stacked and unstacked RNN's with two different encoder-decoder temporal GNN's with differing decoders. We find that the Temporal Graph Neural Network with an LSTM decoder performs best at predicting traffic speeds in the Bay Area. 
+
+## Introduction
 
 Traffic congestion across the United States is a problem often discussed both academically and casually. On a more macro scale, it's a cause for economic inefficiency, pollution, and the deterioration of human health. On a micro scale, almost everyone experiences a "bad day" in transit.
 
@@ -45,7 +52,7 @@ We will employ the use of a recurrent graph neural network model, a Gated Recurr
 
 <img width="686" alt="Pems Bay Traffic Sensors" src="pems_bay_traffic.png">
 
-We use [Pytorch](https://pytorch.org) and [Pytorch geometric](https://pytorch-geometric-temporal.readthedocs.io/en/latest/) to build the frameworks of these graph neural network and LSTM models. We intend to access this data using its provided API, involving common Python libraries such as [https://pandas.pydata.org](Pandas), [https://numpy.org](NumPy). Using this data, we will construct a network graph for each unique 5 minute interval and conduct time series analysis on the data using the various we mentioned above.
+We use [Pytorch](https://pytorch.org) and [Pytorch geometric](https://pytorch-geometric-temporal.readthedocs.io/en/latest/) to build the frameworks of these graph neural network and LSTM models. We intend to access this data using its provided API, involving common Python libraries such as [Pandas](https://pandas.pydata.org), [NumPy](https://numpy.org). Using this data, we will construct a network graph for each unique 5 minute interval and conduct time series analysis on the data using the various we mentioned above.
 
 Useful predictors to predict traffic include: previous traffic speeds, the time of day, the time of year, or weather. For this project, we will only include historical traffic speed data and the time of day data to predict the traffic flow data for future timesteps. Because our model is highly localized to 1 and a half hour windows, the time of year will not impact the prediction so much, and weather data is a stretch goal for us to achieve later.
 
@@ -264,4 +271,5 @@ This project showed the potential of using graph neural networks for modeling tr
 
 [9] Tam, Adrian. “LSTM for Time Series Prediction in Pytorch.” MachineLearningMastery.Com, 7 Apr. 2023, machinelearningmastery.com/lstm-for-time-series-prediction-in-pytorch/. 
 
+[10] Li, Yaguang, et al. “Diffusion Convolutional Recurrent Neural Network: Data-Driven Traffic Forecasting.” arXiv.Org, 22 Feb. 2018, arxiv.org/abs/1707.01926. 
 
