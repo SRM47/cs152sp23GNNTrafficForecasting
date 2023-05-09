@@ -191,6 +191,7 @@ num_epochs = 10
 ### RNN
 
 ![output2_360](https://user-images.githubusercontent.com/98058773/237002844-37ed577d-5eeb-4fe4-8760-07931324576e.png) ![output1_360](https://user-images.githubusercontent.com/98058773/237002853-d0fcc029-1667-4174-9ae9-4074d2cdda4f.png)
+
 These graphs shows the actual and predicted traffic flow for a single day across a sigle sensor. 
 
 ![8bd25f95-bc8d-4287-967c-cad437a160d5](https://user-images.githubusercontent.com/98058773/237000823-888b4ca7-1cc1-452f-9d58-d59104133920.png)
