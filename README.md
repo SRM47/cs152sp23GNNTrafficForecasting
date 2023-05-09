@@ -20,7 +20,7 @@ To improve upon current methods for traffic prediction, we employ the use of Rec
 Considering all of these factors, we hope to develop a project that applies GNN methodologies to traffic forecasting in the Bay area. Ideally, our model will be able to identify bottlenecks, and inefficiencies within the city that could be remedied with either greater road development. Short of actual policy recommendation, we could also use this information to help Bay Area drivers identify patterns and improve their quality of travel within the city. We will also compare our GNN performance and application to existing approaches (including conventional CNN) in literature.
 
 ## Related Works
-We can draw inspiration from several sources here: this area of research is novel but good headway has been made by many researchers. <a href="https://arxiv.org/abs/1810.00826">Xu et al., 2019</a>, present a general overview of GNNs and their unique power when applied to representation learning on graphs: they also present a framework for evaluating the expressive power of different GNN architectures, an important problem to consider when designing our own.
+We can draw inspiration from several sources here: this area of research is novel but good headway has been made by many researchers. <a href="https://arxiv.org/abs/1810.00826">Xu et al., 2019</a>, present a general overview of GNNs and their unique power when applied to representation learning on graphs.
 
 A 2020 meta-analysis by <a href="https://link.springer.com/article/10.1007/s42421-020-00030-z">Varghese et al., 2020</a>, establishes a good baseline for our work, as they compare the accuracy, datasets, and methodology of many different neural network approaches to traffic forecasting. In addition, they also identify sub-problems within the larger traffic forecasting space that seem particularly difficult, and analyze the impact and state of each of these fields. We may base our performance evaluation against the 136 other studies analyzed by this paper.
 
@@ -37,7 +37,7 @@ Another consideration is vehicle-vehicle interaction - after all, traffic is in 
 Additionally, the paper <a href="https://www.researchgate.net/publication/330473040"> Graph Attention LSTM Network: A New Model for Traffic Flow Forecasting", Wu, Tianlong, et al., 2018 </a>, takes advantage of the self attention mechanism, most popular for its use in Transformers, by combining a graph neural network with attention and long short term memory networks to accurately predict the temporal depencies of traffic. They predicted traffic data for the next 5 minutes using the previous 30 minutes of data; our group will adopt a similar regime for prediction. 
 
 
-Taking into account all the work that has already been done, we hope to devise an approach that can dynamically mix the best parts of previous research and acheive comprable, if not better, GNN performance. 
+Taking into account all the work that has already been done, we hope to devise an approach that can dynamically mix the best parts of previous research and acheive comprable, if not better, GNN performance. Most of these projects use single shot prediction at a decoding layer for their graph neural networks encoder, but we propose an addition  model that uses a recurrent network as a decoder for possible better predictions. 
 
 
 ## Methods
@@ -45,16 +45,16 @@ We will employ the use of a recurrent graph neural network model, a Gated Recurr
 
 <img width="686" alt="Pems Bay Traffic Sensors" src="pems_bay_traffic.png">
 
-We use Pytorch and Pytorch geometric to build the frameworks of these graph neural network and LSTM models. We intend to access this data using its provided API, involving common Python libraries such as Pandas, Requests, and NumPy. Using this data, we will construct a network graph for each unique 5 minute interval and conduct time series analysis on the data using the various we mentioned above.
+We use [Pytorch](https://pytorch.org) and [Pytorch geometric](https://pytorch-geometric-temporal.readthedocs.io/en/latest/) to build the frameworks of these graph neural network and LSTM models. We intend to access this data using its provided API, involving common Python libraries such as [https://pandas.pydata.org](Pandas), [https://numpy.org](NumPy). Using this data, we will construct a network graph for each unique 5 minute interval and conduct time series analysis on the data using the various we mentioned above.
 
-Useful predictors to predict traffic include: previous traffic flow, the time of day, the time of year, or weather. For this project, we will only include historical traffic flow data and the time of day data to predict the traffic flow data for future timesteps. Because our model is highly localized to 1 and a half hour windows, the time of year will not impact the prediction so much, and weather data is a stretch goal for us to achieve later.
+Useful predictors to predict traffic include: previous traffic speeds, the time of day, the time of year, or weather. For this project, we will only include historical traffic speed data and the time of day data to predict the traffic flow data for future timesteps. Because our model is highly localized to 1 and a half hour windows, the time of year will not impact the prediction so much, and weather data is a stretch goal for us to achieve later.
 
 The cleaned data looks like the graph below. There appears a clear time-series pattern that could be modelled using a time series forecasting method such as ARIMA or ETS. Instead, we will use deep learning frameworks and compare the performance of GNNs, CNNs and RNNs on this data. 
 
 <img width="687" alt="Screenshot 2023-05-09 at 11 07 39 AM" src="https://user-images.githubusercontent.com/74080246/237003729-5d5fa79e-e03e-41e3-847c-d4eaea4805ed.png">
 
 
-## Goals
+## The Goals of the Project are to
 1. Predict traffic flow in San Francisco
 2. Deploy to a web-based frontend 
 3. Successfully learn and apply a specialized GNN to traffic flow problems
@@ -64,7 +64,7 @@ The cleaned data looks like the graph below. There appears a clear time-series p
 We will closely monitor this project to ensure our network does not unfairly affect specific areas or groups. Though we are limiting our project only to consider traffic within the United States, to keep consistency amongst laws and customs, the type of driving, vehicles, and demographics will change from state to state, county to county, and even town to town. One such factor that we will consider is driving habits. The attitude of safe driving and speed limits will be subject to the territory. Similarly, weather conditions and the general geographical landscape will change drastically nationwide. A model trained in a bustling metropolitan will not necessarily be able to account for a snowstorm in a sparse rural area. 
 
 
-Given that we would not want to prejudice the model for a particular environment unfairly, we will attempt to account for this by adjusting accordingly. Additionally, the speed of vehicles will vary, as well as maneuverability and ability to change lanes. Finally, we will need to consider the car and conditions in which the model will be trained. The vehicle, driver, road conditions, weather, time of year, state driving laws, the density of police surveillance, and even the number of occupants will affect the data passed to the model. 
+Given that we would not want to prejudice the model for a particular environment unfairly, we will attempt to account for this by using a representative dataset of equal proportion. Additionally, the speed of vehicles will vary, as well as maneuverability and ability to change lanes. Finally, we will need to consider the car and conditions in which the model will be trained. The vehicle, driver, road conditions, weather, time of year, state driving laws, the density of police surveillance, and even the number of occupants will affect the data passed to the model. 
 
 ## Graph Neural Networks
 ### What is a Graph Neural Network
