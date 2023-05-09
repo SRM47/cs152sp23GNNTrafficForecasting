@@ -112,10 +112,15 @@ We then create the model as a class in which a LSTM layer and a fully connected 
 We compared two similar but slightly different models: a stacked and unstacked model. This change was to test how the number of layers affected the prediction of across the timeseries. 
 
 Our hyperparameters are as follows:
+
             hidden_size = 64
+            
             input_size = 2
+            
             batch_size = 325
+            
             num_layers = 1 (unstacked), 2 (stacked)
+            
 
 Because it is a regression problem, MSE is chosen as the loss function, which is minimized by Adam optimizer. 
 
