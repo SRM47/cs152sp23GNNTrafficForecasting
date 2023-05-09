@@ -160,6 +160,15 @@ The first decoder simply conducts single-shot prediction, where each of the 325 
 </center>
 The second decoder is more complex, where the context vector for a given node is fed into a two-layer LSTM decoder that recurrently predicts the next 6 timesteps. Similar to the single-shot decoder, we use this LSTM on all 325 context vectors to gather predictions for all sensors in the graph.
 
+The hyperparameters for both models were as follows:
+```
+lr = 0.01
+weight_decay = 0.000
+dropout = 0.1
+batch_size = 64
+num_epochs = 10
+```
+
 <center>
 <img width="400" alt="decoder lstm" src="lstm_decoder.png">
 </center>
