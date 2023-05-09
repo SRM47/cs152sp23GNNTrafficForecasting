@@ -3,6 +3,9 @@
 ### Members
 Austin Zang, Devin Guinney, Ethan Lee, Saatvik Kher, Sam Malik
 
+## Project Demo Like
+[Link here]
+
 ## Abstract
 In this project we explore the efficacy of Recurrent Neural Networks, and different types of Temporal Graph Neural Networks to predict traffic speeds across the Bay Area. In this exploration, we compare stacked and unstacked RNN's with two different encoder-decoder temporal GNN's with differing decoders. We find that the Temporal Graph Neural Network with an LSTM decoder performs best at predicting traffic speeds in the Bay Area. 
 
