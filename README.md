@@ -99,7 +99,7 @@ In our case, we will be using the PEMS-BAY traffic dataset. The PEMS-BAY traffic
 
 This project uses LSTM to build a time series prediction neural network. The problem is a regression, though more complicated than a simple predictions because each timestep has 325 features/sensors. 
 
-The model starts by compiling the data into a NumPy array of n x m, where n = number of sensors and m = number of timesteps. The model then splits the timeseries into training and testing data, allocating 67% for training. It should be noted that our data is normalized around 1.0, as to more effectivly utilize the LSTM. 
+The model starts by compiling the data into a NumPy array of n x m, where n = number of sensors and m = number of timesteps. The model then splits the timeseries into training and testing data, allocating 67% for training. It should be noted that our data is normalized around 1.0, as to more effectivly utilize the LSTM. We also flattened our vectors from 4 dimentions to 3 dimensions for input into the LSTM. 
 
 It then transforms the time series into a prediction dataset using a simple class. 
 
@@ -108,6 +108,14 @@ It then transforms the time series into a prediction dataset using a simple clas
 The crux of this design is the prediction window, standard for most time series prediction. The parameter that controls this is lookback. The look back period dictates how much data the network is allowed to look at when making it's prediction. 
 
 We then create the model as a class in which a LSTM layer and a fully connected layer are used. The output of nn.LSTM() is a tuple. The first element is the generated hidden states, one for each time step of the input. The second element is the LSTM cell’s memory and hidden states. The output of hidden states is further processed by a fully-connected layer to produce a single regression result. 
+
+We compared two similar but slightly different models: a stacked and unstacked model. This change was to test how the number of layers affected the prediction of across the timeseries. 
+
+Our hyperparameters are as follows:
+            hidden_size = 64
+            input_size = 2
+            batch_size = 325
+            num_layers = 1 (unstacked), 2 (stacked)
 
 Because it is a regression problem, MSE is chosen as the loss function, which is minimized by Adam optimizer. 
 
