@@ -194,6 +194,7 @@ num_epochs = 10
 These graphs shows the actual and predicted traffic flow for a single day across a sigle sensor. 
 
 ![8bd25f95-bc8d-4287-967c-cad437a160d5](https://user-images.githubusercontent.com/98058773/237000823-888b4ca7-1cc1-452f-9d58-d59104133920.png)
+
 This graph show the loss for our training and testing data over for each model (stacked and unstacked). 
 
 Of course, we are ultimately dealing with spatial data that describes real physical places in the world. Our hope was that by the end of the project, we would be able to use geotagging and other feature engineering approaches to map the output of our neural networks into a human-readable map of San Francisco. At each street, we would show the predicted speed of traffic, dynamically updating the map as we move through different times of year and day. 
