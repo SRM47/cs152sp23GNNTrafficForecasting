@@ -112,7 +112,7 @@ We then create the model as a class in which a LSTM layer and a fully connected 
 Because it is a regression problem, MSE is chosen as the loss function, which is minimized by Adam optimizer. 
 
 ### GNN Architectures
-This project also compares the effectiveness of two similar graph neural network architechtures for traffic speed prediction. Both models follow an encoder-decoder architecture. The two models differ only in the decoder they use.
+This project also compares the effectiveness of two similar graph neural network architechtures for traffic speed prediction. Both models follow an encoder-decoder architecture. The two models differ only in the decoder they use. As there are 325 traffic sensors, the graph representing the traffic state at each timestep will therefore have 325 nodes, each with corresponding two dimensional input vectors. 
 
 Both models use a Recurrent Graph Attention Network, which compiles all 12 input graphs into a single graph where each node's final embedding is a 32 dimensional context vector to be decoded into the 6 predicted timesteps.
 
