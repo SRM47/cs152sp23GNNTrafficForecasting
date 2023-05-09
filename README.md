@@ -109,7 +109,7 @@ The crux of this design is the prediction window, standard for most time series 
 
 We then create the model as a class in which a LSTM layer and a fully connected layer are used. The output of nn.LSTM() is a tuple. The first element is the generated hidden states, one for each time step of the input. The second element is the LSTM cell’s memory and hidden states. The output of hidden states is further processed by a fully-connected layer to produce a single regression result. 
 
-Because it is a regression problem, MSE is chosen as the loss function, which is be minimized by Adam optimizer. 
+Because it is a regression problem, MSE is chosen as the loss function, which is minimized by Adam optimizer. 
 
 ### GNN Architectures
 This project also compares the effectiveness of two similar graph neural network architechtures for traffic speed prediction. Both models follow an encoder-decoder architecture. The two models differ only in the decoder they use.
