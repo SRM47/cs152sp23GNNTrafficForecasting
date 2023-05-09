@@ -8,7 +8,7 @@ Traffic congestion across the United States is a problem often discussed both ac
 
 Recent developments in machine learning and data science has led to the rise of traffic forecasting: the ability to use historical traffic data to predict traffic information such as volume, speed, and flow of vehicles at a given future time. Applications of neural networks in this domain are essential to improve travel safety and foster cost-efficient travel according to <a href="https://www.tandfonline.com/doi/full/10.1080/23311916.2021.2010510">Kashyap et al., 2021</a>. Government officials may then use these predictions to plan more efficient road infrastructure, making decisions on the budget, scope, and geometry of America's transportation network. 
 
-The Bay Area, in Northern California, houses a few of the largest and most renown cities in the United States. The area is a leading hub for many of the world’s leading technology companies, including Google, Apple, and Meta. Given its national significance and substantial population, traffic congestion in the Bay Area is crucial to understand and analyze to hopefully develop insights into methods to improve vehicular congestion for productivity, economy, and quality of life boosts for residents and regular commuters.
+The Bay Area, in Northern California, houses a few of the largest and most renowned cities in the United States. The area is a leading hub for many of the world’s leading technology companies, including Google, Apple, and Meta. Given its national significance and substantial population, traffic congestion in the Bay Area is crucial to understand and analyze to hopefully develop insights into methods to improve vehicular congestion for productivity, economy, and quality of life boosts for residents and regular commuters.
 
 
 More uniquely, the traffic in the Bay Area is unique in several regards. With a population of over 7 million people, the Bay Area is quite densely populated, which can lead to various traffic congestion issues. In terms of the Bay Area’s topography, the area contains steep hills, valleys, which can heighten transportation maintenance issues. Additionally, the area’s freeways and highways feature complex interchanges which can lead to bottlenecks and increase the risk of road accidents. Lastly, despite BART, their public transport system, the majority of residents in the area rely on private vehicles to commute from location to location, which can contribute to traffic congestion, and justifies the need for better traffic forecasting techniques because commuters need to know this vital information.
@@ -128,11 +128,17 @@ We compared two similar but slightly different models: a stacked and unstacked m
 
 Our hyperparameters are as follows:
 
-            hidden_size = 64
+            hidden_size = 50
             
             input_size = 2
             
             batch_size = 325
+			
+			loss = RMSE (Root Mean Squared Error)
+			
+			optimizer = Adam
+			
+			learning_rate = 1e-3
             
             num_layers = 1 (unstacked), 2 (stacked)
             
